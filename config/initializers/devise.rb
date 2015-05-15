@@ -4,7 +4,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = '4ea0edceaf19d5d2ff020e7260fff729584af26ad0d197c4cb9154e912a5aeaa8a249c87a06e2aa26d485fbc6cd3a2acaff765ea902b27d5a6cc82cbd7c21288'
+  # config.secret_key = 'f0de4d6b3792564993ad50221ba3ac938e933f6c943906fd9722d56ca5d71dbb12cf08b556d4da680bf1cbad3f76653d49489a980461a03d99d2835718eab31a'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -20,6 +20,7 @@ Devise.setup do |config|
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
   require 'devise/orm/active_record'
+
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -97,7 +98,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 10
 
   # Setup a pepper to generate the encrypted password.
-  # config.pepper = '7f25548b7afeeaff3de89c4fcacd8c06335ff4879690b1aae6ea04499d9ce9198fe65dd17031f78f1e843a8df299e938f1d3e7471a473ee953739f3f11a580e8'
+  # config.pepper = '7e6bbb2b5ea9e6e96d81fd0a7c8758575b972f5d8f2fe3a8a2805f757e01423598f86febc34003ceaf10f2af13199e63c4578e93f9627bf6e77775867d3297d5'
 
   # ==> Configuration for :confirmable
   # A period that the user is allowed to access the website even without
@@ -256,4 +257,5 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_SECRET'], scope: "email"
 end
