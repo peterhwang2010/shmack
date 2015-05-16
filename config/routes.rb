@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'user/edit'
 
   get 'user/show'
+  resources :group
 
 
 end

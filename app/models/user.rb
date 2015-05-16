@@ -5,8 +5,11 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :group_users
+  has_many :groups, through: :group_users
   has_many :match_users
+  has_many :matches, through: :match_users
   has_many :user_stats
+  has_many :stats, through: :user_stats
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

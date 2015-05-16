@@ -1,0 +1,15 @@
+Group page : <br>
+
+
+Welcome <%= @user_name %> !
+
+<br>
+<h3> Your Admin Group </h3>
+<% @all_groups.each do |group| %>
+	<h5><%= group.group_name %></h5>
+<% end %>
+<br>
+<br>
+<h3> Group Your In </h3>
+
+<% binding.pry %>

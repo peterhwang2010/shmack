@@ -14,6 +14,6 @@ def facebook
 
 
     def edit
-      binding.pry
+
     end
 end
