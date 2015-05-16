@@ -1,9 +1,6 @@
-Group page : <br>
-
-
-Welcome <%= @user_name %> !
-
-<br>
+<%= link_to "Home", root_path %><br>
+Welcome <%= @user_name %>! <br>
+<h1>Group Profile</h1>  <br>
 <h3> Your Admin Group </h3>
 <% @all_groups.each do |group| %>
 	<h5><%= group.group_name %></h5>
@@ -12,4 +9,14 @@ Welcome <%= @user_name %> !
 <br>
 <h3> Group Your In </h3>
 
-<% binding.pry %>
+<br>
+<br>
+<br>
+
+
+
+
+<%= link_to "Create Group", new_group_path %><br>
+
+
+
