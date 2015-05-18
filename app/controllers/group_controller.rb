@@ -8,6 +8,11 @@ class GroupController < ApplicationController
 	end
 
 	def new
+	end
+
+	def create
+
+		# returns all the group members params["groups"]["members"]
 		binding.pry
 	end
 end

@@ -1,1 +1,10 @@
-create form to create new group
+
+<h1>Create New Group</h1>
+<%= form_for(:groups) do |f| %>
+    <%= f.label :group_name %><br>
+    <%= f.text_field :group %><br>
+    <br>
+    <%= f.label :group_members %><br>
+    <%= f.text_area :members%><br><br>
+  	<%= f.submit%>
+  <% end %>
