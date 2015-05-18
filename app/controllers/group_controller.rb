@@ -2,8 +2,8 @@ class GroupController < ApplicationController
 
 
 	def index
-		@@user_name = current_user.name
-		@@all_groups = current_user.groups
+		@user_name = current_user.name
+		@all_groups = current_user.groups
 
 	end
 
@@ -13,8 +13,7 @@ class GroupController < ApplicationController
 	def create
 		@user_name = current_user.name
 		@all_groups = current_user.groups
-
-		# returns all the group members params["groups"]["members"]
+		current_user.groups.create(group_name: params["groups"]["group"]).save
 		render 'index'
 	end
 end
