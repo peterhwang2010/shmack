@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-  root 'welcome#index'
+  get 'user/index'
+  root 'user#show'
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
   get 'user/edit'
