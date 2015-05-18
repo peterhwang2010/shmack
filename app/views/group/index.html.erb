@@ -1,14 +1,15 @@
 <%= link_to "Home", root_path %><br>
 Welcome <%= @user_name %>! <br>
 <h1>Group Profile</h1>  <br>
-<h3> Your Admin Group </h3><br>
+<h3> Groups </h3><br>
 <% @all_groups.each do |group| %>
-	<h4><%= group.group_name %></h4>
-	<h5> Name of group members: <%= Group.all.find_by(id: 1).users.find_by(name: current_user.name).name %></h5><br>
+<h3><%= link_to "#{group.group_name}", group_profile_path(:group_name => group.group_name) %></h3>
+<%= button_to "delete", {:controller => :group,
+      :action => 'destroy', :id => group.id }, :method => :delete %>
 <% end %>
 <br>
 <br>
-<h3> Group Your In </h3>
+
 
 <br>
 <br>
