@@ -1,0 +1,24 @@
+<%= link_to "Home", root_path %><br>
+Welcome <%= @user_name %>! <br>
+<h1>Group Profile</h1>  <br>
+<h3> Groups </h3><br>
+<% @all_groups.each do |group| %>
+<h3><%= link_to "#{group.group_name}", group_profile_path(:group_name => group.group_name) %></h3>
+<%= button_to "delete", {:controller => :group,
+      :action => 'destroy', :id => group.id }, :method => :delete %>
+<% end %>
+<br>
+<br>
+
+
+<br>
+<br>
+<br>
+
+
+
+
+<%= link_to "Create Group", new_group_path %><br>
+
+
+

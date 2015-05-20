@@ -1,0 +1,10 @@
+<div class="col">
+
+        <h2><%= current_user.name %></h2>
+        <%= image_tag current_user.image,   class: "profile-pic" %>
+        <h4> Email: <%= current_user.email %> </h4>
+        <%= link_to "Signout", destroy_user_session_path, method: :delete %>
+        
+          
+</div>
+
