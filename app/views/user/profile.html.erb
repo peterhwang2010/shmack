@@ -1,10 +1,17 @@
 <div class="col">
 
         <h2><%= current_user.name %></h2>
-        <%= image_tag current_user.image,   class: "profile-pic" %>
+        <%= image_tag current_user.image_aws,   class: "profile-pic" %>
         <h4> Email: <%= current_user.email %> </h4>
+        <h3> Groups </h3>
+        <% current_user.groups.each do |group|%>
+        <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %>
+        <% end %>
+
+        </ul>
+        <%= link_to "Edit", 'user/edit', method: :update %><br>
         <%= link_to "Signout", destroy_user_session_path, method: :delete %>
         
-          
+        
 </div>
 

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'welcome/index'
   get 'user/profile'
+  post 'user/edit'
   root 'user#profile'
   devise_for :users, controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'user/show'
   get 'user/index'
+  resources :user
   resources :group
 
 

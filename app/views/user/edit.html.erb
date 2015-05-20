@@ -1,7 +1,6 @@
 <% provide(:title, current_user) %>
 <div class="col col-sm-offset-2 col-sm-4">
   <h1>Update Profile</h1>
-  <% binding.pry %>
   <%= form_for current_user, class: "form-horizontal" do |f| %>
     <div class="form-group">
       <%= f.text_field :first_name, class: "form-control", placeholder: "First Name" %>
