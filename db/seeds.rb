@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+users = JSON.parse(File.read("db/seeds/users.json"))
+  users.each do |user|
+    u = User.create(user)
+  end
