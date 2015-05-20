@@ -5,5 +5,13 @@
         <%= image_tag @user.image_aws,   class: "profile-pic" %>
         <h4> Email: <%= @user.email %> </h4>
         <%= link_to "Signout", destroy_user_session_path, method: :delete %>
+        <% if @user.groups.empty? %>
+        <h3> No Groups </h3>
+        <% else %>
+        <h3> Groups </h3>
+          <% @user.groups.each do |group|%>
+          <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %>
+          <% end %>
+        <% end %>
 </div>
 

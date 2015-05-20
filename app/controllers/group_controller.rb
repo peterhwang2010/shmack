@@ -21,7 +21,6 @@ class GroupController < ApplicationController
 
 	def profile
 		@current_group = current_user.groups.find_by(group_name: params["group_name"])
-		binding.pry
 		@current_group_users = @current_group.users
 	end
 
