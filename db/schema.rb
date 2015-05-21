@@ -37,11 +37,14 @@ ActiveRecord::Schema.define(version: 20150513021203) do
   add_index "identities", ["user_id"], name: "index_identities_on_user_id"
 
   create_table "match_users", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "match_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "matches", force: :cascade do |t|
+    t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
