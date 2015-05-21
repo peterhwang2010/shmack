@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   resources :user
   resources :group
   resources :match
-  
+
   get 'match/index' 
-  post 'match/new'
+  post '/match/new', to: 'match#create'
   get 'match/show' 
 
 end

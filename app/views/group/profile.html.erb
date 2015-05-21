@@ -7,7 +7,6 @@ Each group profile page<br>
 <% @current_group_users.each do |user| %>
 	<p><%= link_to user.name, user %></p>
 <% end %>
-<h4><%= link_to "Create Match", new_match_path %><br>
+<h4><%= link_to "Create Match", new_match_path(:id => @current_group.id) %><br>
 </h4>
-
 
