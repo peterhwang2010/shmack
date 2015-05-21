@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   get 'user/index'
   resources :user
   resources :group
-
+  resources :match
+  
+  get 'match/index' 
+  post 'match/new'
+  get 'match/show' 
 
 end
