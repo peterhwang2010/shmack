@@ -3,6 +3,8 @@ class UserController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :profile]
 
   def profile
+    @user = current_user
+    @user.groups
     render 'profile'
   end
 

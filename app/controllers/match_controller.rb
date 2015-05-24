@@ -1,5 +1,4 @@
 class MatchController < ApplicationController
- attr_accessor :group_id
 
   def index
 
@@ -9,20 +8,22 @@ class MatchController < ApplicationController
 
 
   def show
+    binding.pry
   end
 
   def create
-    binding.pry
-    @current_group = Group.find_by_id(params[:id].to_i)
-    
+    @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
+    @current_group.matches.last.update(name: params[:matches][:match_name])
+    @current_match = @current_group.matches.last
   end
 
   def new 
-    binding.pry
     @current_group = Group.find_by_id(params[:id].to_i)
     @current_group.matches.create(group_id: @current_group).save
+  end
 
-# binding.pry
+  def profile 
+    binding.pry
   end
 end
 

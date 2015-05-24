@@ -1,0 +1,13 @@
+Test
+
+
+Add users 
+
+<h1>Competing @ <%= @current_match.name %></h1><br>
+<br><h2> Group Members... </h2>
+
+<% @current_group.users.each do |user| %>
+	<p><%= link_to user.name, user %></p>
+<% end %>
+
+

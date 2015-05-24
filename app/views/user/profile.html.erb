@@ -5,10 +5,16 @@
         <h4> Email: <%= current_user.email %> </h4>
         <h3> Groups </h3>
         <% current_user.groups.each do |group|%>
-        <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %>
+        <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
         <% end %>
+        <h3> Matches </h3>
+          <% @user.groups.each do |group| %>
+            <% group.matches.each do |match| %><br>
+              <%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %>
+            <% end %>
+          <% end %>
 
-        </ul>
+        </ul><br>
         <%= link_to "Edit", 'user/edit', method: :update %><br>
         <%= link_to "Signout", destroy_user_session_path, method: :delete %>
         

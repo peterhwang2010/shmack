@@ -10,8 +10,16 @@
         <% else %>
         <h3> Groups </h3>
           <% @user.groups.each do |group|%>
-          <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %>
+          <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
           <% end %>
+        <h3> Matches </h3>
+          <% @user.groups.each do |group| %>
+            <% group.matches.each do |match| %>
+            <%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %>
+            <% end %>
+          <% end %>
+
+
         <% end %>
 </div>
 
