@@ -10,20 +10,21 @@ class MatchController < ApplicationController
   def show
     @current_match = Match.all.find_by_name(params[:match_name])
     @competition = @current_match.users
-    binding.pry
+    @current_group = @current_match.group
     render "create"
   end
 
   def create
+    binding.pry
     @competition = []
     @competition << current_user
-    @competition << User.all.find_by_id(params[:matches][:member])
+    @competition << User.all.find_by_id(params[:matches][:member_id])
     @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
     @current_group.matches.last.update(name: params[:matches][:match_name])
     @current_match = @current_group.matches.last
     @current_match.users << current_user
-    @current_match.users << User.all.find_by_id(params[:matches][:member])
-    binding.pry
+    @current_match.users << User.all.find_by_id(params[:matches][:member_id])
+  
   end
 
   def new 
@@ -32,6 +33,12 @@ class MatchController < ApplicationController
   end
 
   def profile 
+    binding.pry
+  end
+
+  def winner
+    @winner =  User.all.find_by_id(params[:matches][:member])
+    @winner.update(win: @winner.win+=1)
     binding.pry
   end
 end

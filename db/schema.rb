@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 20150521143349) do
 
   create_table "users", force: :cascade do |t|
     t.string   "image_aws"
+    t.integer  "win",                    default: 0
+    t.integer  "lose",                   default: 0
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "email",                  default: ""
