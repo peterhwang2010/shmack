@@ -1,9 +1,16 @@
-Test
-
-
-Add users 
-
+<div class="intro">
+<div class="intro-body">
 <h1>Competing @ <%= @current_match.name %></h1><br>
+<h1><%= current_user.name %> VS. <%= User.all.find_by_id(params[:matches][:member].to_i).name %></h1>
+<br><br>
+<%= form_for(:matches) do |f| %>
+    <%= f.label :Winner? %><br>
+    <% binding.pry %>
+    <%= f.collection_select :member, @competition , :id, :name, prompt: "Please Select", multiple: true %>
+    <br><br>
+    <%= f.hidden_field :group_id, :value => @current_group.id %>
+    <%= f.submit  "Submit", class: "btn btn-primary" %>
+  <% end %>
 <br><h2> Group Members... </h2>
 <% @current_match.users.each do |user| %>
 
@@ -11,3 +18,5 @@ Add users
 <% end %>
 
 
+</div>
+</div>
