@@ -1,5 +1,7 @@
+<div class="intro">
+<div class="intro-body">
 <% provide(:title, current_user) %>
-<div class="col col-sm-offset-2 col-sm-4">
+
   <h1>Update Profile</h1>
   <%= form_for current_user, class: "form-horizontal" do |f| %>
     <div class="form-group">
@@ -13,4 +15,6 @@
     </div>
     <%= f.submit "Save Changes", class: "btn btn-primary" %>
   <% end %>
+
+</div>
 </div>

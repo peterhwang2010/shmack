@@ -1,12 +1,15 @@
-<%= link_to "Home", root_path %><br>
-Each group profile page<br>
+<div class="intro">
+<div class="intro-body">
 
-<%= link_to "Back to your groups", group_index_path %><br>
-<h1><%= @current_group.group_name %></h1>
-<br>
+
+<h1 class="brand-heading"><%= @current_group.group_name %></h1>
+<h3><%= link_to "Back to your groups", group_index_path %></h3><br><br>
 <% @current_group_users.each do |user| %>
 	<p><%= link_to user.name, user %></p>
 <% end %>
 <h4><%= link_to "Create Match", new_match_path(:id => @current_group.id) %><br>
 </h4>
+
+</div>
+</div>
 

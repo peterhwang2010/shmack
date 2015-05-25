@@ -1,5 +1,5 @@
-<h1> NEW </h1>
-<%= link_to "Home", root_path %><br>
+<div class="intro">
+<div class="intro-body">
 <h1>Create New Match</h1>
 <%= form_for(:matches) do |f| %>
     <%= f.label :name %><br>
@@ -10,3 +10,5 @@
     <%= f.hidden_field :group_id, :value => @current_group.id %>
     <%= f.submit  "Create Match" %>
   <% end %>
+  </div>
+  </div>

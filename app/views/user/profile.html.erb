@@ -1,16 +1,17 @@
-<div class="col">
-
-        <h2><%= current_user.name %></h2>
+<div class="intro">
+<div class="intro-body">
+        <h1 class="brand-heading"><%= current_user.name %></h1>
         <%= image_tag current_user.image_aws,   class: "profile-pic" %>
         <h4> Email: <%= current_user.email %> </h4>
-        <h3> Groups </h3>
+        <h2 class="brand-heading"> Groups </h2>
         <% current_user.groups.each do |group|%>
         <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
-        <% end %>
-        <h3> Matches </h3>
+        <% end %><br>
+
+        <h2 class="brand-heading"> Matches </h2>
           <% @user.groups.each do |group| %>
-            <% group.matches.each do |match| %><br>
-              <%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %>
+            <% group.matches.each do |match| %>
+              <%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %><br>
             <% end %>
           <% end %>
 
@@ -20,4 +21,4 @@
         
         
 </div>
-
+</div>
