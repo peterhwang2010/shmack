@@ -1,10 +1,19 @@
-<%= link_to "Home", root_path %><br>
+<div class="intro">
+<div class="intro-body">
+  <%= link_to "Home", root_path %><br>
+
 <h1>Create New Group</h1>
+
 <%= form_for(:groups) do |f| %>
     <%= f.label :group_name %><br>
-    <%= f.text_field :group %><br>
+    <font color= "black"><%= f.text_field :group %></font><br>
     <br>
-    <%= f.label :group_members %><br>
-    <%= f.text_area :members%><br><br>
-  	<%= f.submit%>
+    <%= f.label :users %><br>
+    <font color= "black">
+      <%= f.select :users_id, User.all.collect {|s| [s.name.downcase, s.id]}.sort, {}, { multiple: true } %>
+    </font>
+    <br><br>
+    <%= f.submit "Create Group", class: "btn btn-primary"%>
   <% end %>
+</div>
+</div>

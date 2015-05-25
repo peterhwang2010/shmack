@@ -8,20 +8,13 @@ Welcome <%= @user_name %>! <br>
 <% @all_groups.each do |group| %>
 <h3><%= link_to "#{group.group_name}", group_profile_path(:group_name => group.group_name) %></h3>
 <%= button_to "delete", {:controller => :group,
-      :action => 'destroy', :id => group.id }, :method => :delete %>
+      :action => 'destroy', :id => group.id }, :method => :delete, :class => "btn btn-danger" %>
+      <br>
 <% end %>
 <br>
-<br>
-
-
-<br>
-<br>
-<br>
-
-
-
 
 <%= link_to "Create Group", new_group_path %><br>
+<br>
 </div>
 </div>
 

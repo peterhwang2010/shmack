@@ -3,10 +3,11 @@
         <h1 class="brand-heading"><%= current_user.name %></h1>
         <%= image_tag current_user.image_aws,   class: "profile-pic" %>
         <h4> Email: <%= current_user.email %> </h4>
-        <h2 class="brand-heading"> Groups </h2>
+        <h2 class="brand-heading"><%= link_to "Group", group_index_path %> </h2>
         <% current_user.groups.each do |group|%>
         <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
         <% end %><br>
+        <%= link_to "Create Group", new_group_path %><br>
 
         <h2 class="brand-heading"> Matches </h2>
           <% @user.groups.each do |group| %>

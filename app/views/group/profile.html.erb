@@ -1,13 +1,12 @@
 <div class="intro">
 <div class="intro-body">
 
-
-<h1 class="brand-heading"><%= @current_group.group_name %></h1>
+<h1 class="brand-heading"><%= @group.group_name %></h1>
 <h3><%= link_to "Back to your groups", group_index_path %></h3><br><br>
 <% @current_group_users.each do |user| %>
 	<p><%= link_to user.name, user %></p>
 <% end %>
-<h4><%= link_to "Create Match", new_match_path(:id => @current_group.id) %><br>
+<h4><%= link_to "Create Match", new_match_path(:id => @group.id) %><br>
 </h4>
 
 </div>
