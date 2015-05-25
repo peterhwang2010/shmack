@@ -12,6 +12,7 @@ class MatchController < ApplicationController
   end
 
   def create
+    binding.pry
     @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
     @current_group.matches.last.update(name: params[:matches][:match_name])
     @current_match = @current_group.matches.last
