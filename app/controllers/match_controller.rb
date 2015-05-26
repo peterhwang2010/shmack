@@ -15,15 +15,25 @@ class MatchController < ApplicationController
   end
 
   def create
-    binding.pry
-    @competition = []
-    @competition << current_user
-    @competition << User.all.find_by_id(params[:matches][:member_id])
-    @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
-    @current_group.matches.last.update(name: params[:matches][:match_name])
-    @current_match = @current_group.matches.last
-    @current_match.users << current_user
-    @current_match.users << User.all.find_by_id(params[:matches][:member_id])
+    if params[:matches][:match_name] == nil
+      match_id = params[:matches][:match_id]
+      @competition = []
+      @competition << User.all.find_by_name(Match.all.find_by_id(match_id).playerone)
+      @competition << User.all.find_by_name(Match.all.find_by_id(match_id).playertwo)
+      @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
+      @current_match = @current_group.matches.last
+    else
+      @competition = []
+      @competition << current_user
+      @competition << User.all.find_by_id(params[:matches][:member_id])
+      @current_group = Group.find_by_id(params[:matches][:group_id].to_i)
+      @current_group.matches.last.update(name: params[:matches][:match_name])
+      @current_match = @current_group.matches.last
+      @current_match.update(playerone: current_user.name)
+      @current_match.update(playertwo: User.all.find_by_id(params[:matches][:member_id]).name)
+      @current_match.users << current_user
+      @current_match.users << User.all.find_by_id(params[:matches][:member_id])
+    end
   
   end
 
@@ -33,11 +43,10 @@ class MatchController < ApplicationController
   end
 
   def profile 
-    binding.pry
   end
 
   def winner
-    @winner =  User.all.find_by_id(params[:matches][:member])
+    @winner =  User.all.find_by_id(params[:matches][:member_id])
     @winner.update(win: @winner.win+=1)
     @current_match = Match.all.find_by_id(params[:matches][:match_id])
     if @current_match.users.first == @winner
@@ -46,7 +55,8 @@ class MatchController < ApplicationController
       @loser = @current_match.users.first
     end
     @loser.update(lose: @loser.lose+=1)
-    binding.pry
+    @current_match.update(winner: @winner.name)
+    render "create"
   end
 end
 

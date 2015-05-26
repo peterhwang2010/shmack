@@ -5,6 +5,7 @@
 <h3><%= link_to "Back to your groups", group_index_path %></h3><br><br>
 <% @current_group_users.each do |user| %>
 	<p><%= link_to user.name, user %></p>
+	<h4>Win : <%= user.win %>  Lose: <%= user.win %> </h4>
 <% end %>
 <h4><%= link_to "Create Match", new_match_path(:id => @group.id) %><br>
 </h4>

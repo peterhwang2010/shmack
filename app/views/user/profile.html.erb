@@ -14,11 +14,10 @@
         <%= link_to "Create Group", new_group_path, class: "btn btn-primary" %><br>
         </div>
         <div class="matches">
-
+             <h2 class="brand-heading"><%= link_to "Matches", match_index_path %> </h2>
               <% @user.groups.each do |group| %>
               <% if group.matches.any? %>
                     <% group.matches.each do |match| %>
-                    <h2 class="brand-heading"><%= link_to "Matches", match_index_path %> </h2>
 
                       <h5><%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %><br></h5>
                     <% end %>
