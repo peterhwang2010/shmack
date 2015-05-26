@@ -1,10 +1,7 @@
 <div class="intro">
 <div class="intro-body">
 
-<%= link_to "Home", root_path %><br>
-Welcome <%= @user_name %>! <br>
-<h1>Group Profile</h1>  <br>
-<h3> Groups </h3><br>
+<h2> Groups </h2><br>
 <% @all_groups.each do |group| %>
 <h3><%= link_to "#{group.group_name}", group_profile_path(:group_name => group.group_name) %></h3>
 <%= button_to "delete", {:controller => :group,
