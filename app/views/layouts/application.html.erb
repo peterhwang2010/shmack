@@ -11,12 +11,14 @@
 <body>
 
 <div class="navbar navbar-custom navbar-fixed-top top-nav-collapse" role="navigation">
+  <div class="header">
 	<h2><%= link_to "Home", root_path %> |
-	<%= link_to "Signout", destroy_user_session_path, method: :delete %> |
-  <%= link_to "Groups", group_index_path %> |
-  <%= link_to "Matches", match_index_path %> 
-
+  	<%= link_to "Signout", destroy_user_session_path, method: :delete %> |
+    <%= link_to "Groups", group_index_path %> |
+    <%= link_to "Matches", match_index_path %>
+    <img id= "logo" src="https://s3.amazonaws.com/flatirontours/uploads/cities/Shmack-logo.png" align="left">
   </h2>
+  </div> 
 
     </div>
 <%= yield %>
