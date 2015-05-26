@@ -2,14 +2,12 @@ class GroupController < ApplicationController
 
 
 	def index
-		binding.pry
 		@user_name = current_user.name
 		@all_groups = current_user.groups
 
 	end
 
 	def new
-		binding.pry
 	end
 
 	def destroy
@@ -22,8 +20,7 @@ class GroupController < ApplicationController
 	end
 
 	def profile
-		# binding.pry
-    @group = Group.all.find_by_group_name(params[:group_name])
+    	@group = Group.all.find_by_group_name(params[:group_name])
 		@current_group_users = @group.users
 	end
 

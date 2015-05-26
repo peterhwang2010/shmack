@@ -5,10 +5,21 @@ class MatchController < ApplicationController
     @current_group
   end
 
+  def destroy
+    @match = Match.where(id: params[:id])
+    @match.first.destroy
+    flash[:notice] = "Deleted group!"
+    render 'index'
+  end
+
 
 
   def show
-    @current_match = Match.all.find_by_name(params[:match_name])
+    if Match.all.find_by_name(params[:match_name]) == nil
+      @current_match = Match.all.find_by_id(params[:match_name])
+    else
+      @current_match = Match.all.find_by_name(params[:match_name])
+    end
     @competition = @current_match.users
     @current_group = @current_match.group
     render "create"
@@ -56,7 +67,6 @@ class MatchController < ApplicationController
     end
     @loser.update(lose: @loser.lose+=1)
     @current_match.update(winner: @winner.name)
-    binding.pry
     render "create"
   end
 end

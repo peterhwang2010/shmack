@@ -1,1 +1,16 @@
-<h1> INDEX </h1>
+<div class="intro">
+<div class="intro-body">
+
+<h2> Matches </h2><br>
+<% Match.all.each do |match| %>
+<h3><%= link_to "#{match.name}", match_show_path(:match_name => match.id) %></h3>
+<%= button_to "delete", {:controller => :match,
+      :action => 'destroy', :id => match.id }, :method => :delete, :class => "btn btn-danger" %>
+      <br>
+<% end %>
+<br>
+
+<br>
+<br>
+</div>
+</div>
