@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   post '/match/new', to: 'match#create'
   get 'match/show' 
   get 'match/profile', to: 'match#profile'
+  post '/match/profile', to: 'match#winner'
 
 end
