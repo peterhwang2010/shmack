@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_tree ../../../vendor/assets/stylesheets/.
+ *= require social-buttons
  *= require_tree .
  *= require_self
  //= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
@@ -60,7 +61,7 @@ h6 {
     margin: 0 0 50px;
     margin-top: 15px;
     margin-bottom: 0px;
-    margin-right: 10px;
+    margin-right: 20px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
