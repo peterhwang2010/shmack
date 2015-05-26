@@ -5,7 +5,6 @@
 <h3><%= link_to "Back to your groups", group_index_path %></h3><br><br>
 <% @current_group_users.each do |user| %>
 	<%= link_to (image_tag user.image_aws,  class: "img-circle"), user  %>
-	<% binding.pry %>
 	<h4>Win : <%= user.win %>  Lose: <%= user.lose %> </h4>
 <% end %>
 <h4><%= link_to "Create Match", new_match_path(:id => @group.id), class: "btn btn-primary" %><br>
