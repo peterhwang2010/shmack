@@ -62,10 +62,12 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'bootstrap-sass', '~> 3.1.1'
+gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'devise'
 gem 'airbrake'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
+gem 'font-awesome'
 gem 'social-share-button'

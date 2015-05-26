@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require social-buttons
  *= require_tree .
@@ -91,7 +92,7 @@ p {
 }
 
 a {
-    color: #42dca3;
+    color: #FFFFFF;
     -webkit-transition: all .2s ease-in-out;
     -moz-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out;
@@ -214,6 +215,7 @@ a:focus {
 
 .intro .intro-body .intro-text {
     font-size: 18px;
+    color: #000;
 }
 
 @media(min-width:768px) {
@@ -228,6 +230,7 @@ a:focus {
 
     .intro .intro-body .intro-text {
         font-size: 26px;
+        color: #000;
     }
 }
 
@@ -463,3 +466,6 @@ body {
     color: #000000;
 }
 
+.intro .intro-body .brand-heading h5 {
+    color: #000;
+}
