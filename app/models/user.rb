@@ -24,7 +24,8 @@ class User < ActiveRecord::Base
   end
 
   def self.all_but_current_user(current_user)
+    binding.pry
     User.where.not(:id => current_user.id)
   end
-  
+
 end

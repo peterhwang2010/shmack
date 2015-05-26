@@ -8,7 +8,7 @@
     <font color= "black"><%= f.text_field :match_name %></font><br>
     <br>
     <%= f.label :opponent %><br>
-    <%= f.collection_select :member_id, @current_group.users.all , :id, :name, prompt: "Please Select", multiple: true %>
+    <%= f.collection_select :member_id, @current_group.users.all_but_current_user(current_user).all , :id, :name, prompt: "Please Select", multiple: true %>
     <br><br>
     <%= f.hidden_field :group_id, :value => @current_group.id %>
     <%= f.submit  "Create Match", class: "btn btn-primary" %>
