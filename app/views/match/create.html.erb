@@ -1,20 +1,23 @@
 <div class="intro">
 <div class="intro-body">
-<h1>Competing @ <%= @current_match.name %></h1><br>
-<h1><%= current_user.name %> VS. <%= @competition.last.name %></h1>
-<br><br>
-<%= form_for(:matches) do |f| %>
-    <%= f.label :Winner? %><br>
-    <%= f.collection_select :member, @competition , :id, :name, prompt: "Please Select", multiple: true %>
-    <br><br>
-    <%= f.hidden_field :group_id, :value => @current_group.id %>
-    <%= f.submit  "Submit", class: "btn btn-primary" %>
-    <% end %>
-    <br><h2> Group Members... </h2>
-    <% @current_match.users.each do |user| %>
-
-    <p><%= link_to user.name, user %></p>
-    <% end %>
+<% if @current_match.winner == "none" %>
+	<h1>Competing @ <%= @current_match.name %></h1><br>
+	<h1><%= @current_match.playerone %> VS. <%=@current_match.playertwo %></h1>
+	<br><br>
+	<%= form_for(:matches) do |f| %>
+	    <%= f.label :Winner? %><br>
+	    <%= f.collection_select :member_id, @competition , :id, :name, prompt: "Please Select", multiple: true %>
+	    <br><br>
+	    <%= f.hidden_field :match_id, :value => @current_match.id %>
+	    <%= f.hidden_field :group_id, :value => @current_group.id %>
+	    <%= f.submit  "Submit", class: "btn btn-primary" %>
+	    <% end %>
+<% else %>
+	<h1>Competing @ <%= @current_match.name %></h1><br>
+	<h1><%= @current_match.playerone %> VS. <%= @current_match.playertwo %></h1>
+	<br><br>
+	<h2><%= @current_match.winner %> is the WINNER! </h2>
+<% end %>
 
 
   </div>

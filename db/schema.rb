@@ -63,8 +63,11 @@ ActiveRecord::Schema.define(version: 20150525203453) do
 
   create_table "matches", force: :cascade do |t|
     t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "winner",     default: "none"
+    t.string   "playerone",  default: "none"
+    t.string   "playertwo",  default: "none"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.string   "name"
   end
 
