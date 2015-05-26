@@ -64,6 +64,10 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :development do
+  gem "rails-erd"
+end
+
 gem 'bootstrap-sass'
 gem 'bootstrap'
 gem 'devise'
@@ -72,3 +76,4 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'figaro'
 gem 'social-share-button'
+gem "rails-erd"

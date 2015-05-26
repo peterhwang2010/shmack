@@ -25,17 +25,16 @@ class GroupController < ApplicationController
 	end
 
 	def create
-		@members = []
+		@members = [current_user]
 		id_array = params[:groups][:users_id]
 		id_array.each {|single_id| @members << User.find_by_id(single_id)}
 		@members.compact!
-		@user_name = current_user.name
-		@all_groups = current_user.groups
-		current_user.groups.create(group_name: params["groups"]["group"]).save
-		current_user.groups.last.users = @members
-		render 'index'
+		@group = current_user.groups.create(group_name: params["groups"]["group"])
+		@group.users = @members
+		@group.save
+		redirect_to '/'
 	end
 
-	def members
-	end
+
+
 end

@@ -10,7 +10,7 @@
     <br>
     <%= f.label :users %><br>
     <font color= "black">
-      <%= f.select :users_id, User.all.collect {|s| [s.name.downcase, s.id]}.sort, {}, { multiple: true } %>
+      <%= f.select :users_id, User.all_but_current_user(current_user).collect {|s| [s.name.downcase, s.id]}.sort, {}, { multiple: true } %>
     </font>
     <br><br>
     <%= f.submit "Create Group", class: "btn btn-primary"%>

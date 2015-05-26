@@ -22,4 +22,9 @@ class User < ActiveRecord::Base
       user.image = auth.info.image # assuming the user model has an image
     end
   end
+
+  def self.all_but_current_user(current_user)
+    User.where.not(:id => current_user.id)
+  end
+  
 end

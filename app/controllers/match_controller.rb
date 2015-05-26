@@ -69,6 +69,8 @@ class MatchController < ApplicationController
     @current_match.update(winner: @winner.name)
     render "create"
   end
+
+  
 end
 
 private 
