@@ -1,25 +1,31 @@
 <div class="intro">
 <div class="intro-body">
-        <h1 class="brand-heading"><%= current_user.name %></h1>
-        <%= image_tag current_user.image_aws,   class: "profile-pic" %>
-        <h4> Email: <%= current_user.email %> </h4>
-        <h2 class="brand-heading"><%= link_to "Group", group_index_path %> </h2>
-        <% current_user.groups.each do |group|%>
-        <%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
-        <% end %><br>
-        <%= link_to "Create Group", new_group_path %><br>
+        <div class="col col-md-">
+            <h3 class="brand-heading"><%= current_user.name %></h3>
+            <%= image_tag current_user.image_aws, class: "img-circle"%>
+            <h4> Email: <%= current_user.email %> </h4>
+            <%= link_to "Edit", 'user/edit', method: :update, class: "btn btn-primary"%><br>
+        </div>
+        <div class="col col-md-6">
+            <h2 class="brand-heading"><%= link_to "Groups", group_index_path %> </h2>
+            <% current_user.groups.each do |group|%>
+            <h5><%= link_to "#{group.group_name} ", group_profile_path(:group_name => group.group_name) %><br>
+            <% end %><br></h5>
+        <%= link_to "Create Group", new_group_path, class: "btn btn-primary" %><br>
+        </div>
+        <div class="matches">
 
-        <h2 class="brand-heading"> Matches </h2>
-          <% @user.groups.each do |group| %>
-            <% group.matches.each do |match| %>
-              <%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %><br>
-            <% end %>
-          <% end %>
+              <% @user.groups.each do |group| %>
+              <% if group.matches.any? %>
+                    <% group.matches.each do |match| %>
+                    <h2 class="brand-heading"><%= link_to "Matches", match_index_path %> </h2>
 
-        </ul><br>
-        <%= link_to "Edit", 'user/edit', method: :update %><br>
-        <%= link_to "Signout", destroy_user_session_path, method: :delete %>
-        
-        
+                      <h5><%= link_to "#{match.name} ", match_profile_path(:match_name => match.name) %><br></h5>
+                    <% end %>
+                <% end %>
+              <% end %>
+        </div>
+
+        </ul><br>        
 </div>
 </div>

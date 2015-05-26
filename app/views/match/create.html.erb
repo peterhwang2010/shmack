@@ -10,12 +10,14 @@
     <%= f.hidden_field :match_id, :value => @current_match.id %>
     <%= f.hidden_field :group_id, :value => @current_group.id %>
     <%= f.submit  "Submit", class: "btn btn-primary" %>
-  <% end %>
-<br><h2> Group Members... </h2>
-<% @current_match.users.each do |user| %>
-	<p><%= link_to user.name, user %></p>
-<% end %>
+    <% end %>
+    <br><h2> Group Members... </h2>
+    <% @current_match.users.each do |user| %>
+
+    <p><%= link_to user.name, user %></p>
+    <% end %>
 
 
-</div>
+
+  </div>
 </div>

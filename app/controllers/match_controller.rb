@@ -39,6 +39,13 @@ class MatchController < ApplicationController
   def winner
     @winner =  User.all.find_by_id(params[:matches][:member])
     @winner.update(win: @winner.win+=1)
+    @current_match = Match.all.find_by_id(params[:matches][:match_id])
+    if @current_match.users.first == @winner
+      @loser = @current_match.users.last
+    else
+      @loser = @current_match.users.first
+    end
+    @loser.update(lose: @loser.lose+=1)
     binding.pry
   end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :controllers
   get 'welcome/index'
   get 'user/profile'
   post 'user/edit'
