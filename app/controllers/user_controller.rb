@@ -3,8 +3,14 @@ class UserController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update, :profile]
 
   def profile
+    @goals = {}
     @user = current_user
     @user.groups
+    @goals[:name] = []
+    @goals[:name] << "win"
+    @goals[:name] << "lose"
+
+
     render 'profile'
   end
 
