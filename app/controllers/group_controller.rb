@@ -2,7 +2,7 @@ class GroupController < ApplicationController
 
 
 	def index
-		# binding.pry
+		binding.pry
 		@user_name = current_user.name
 		@all_groups = current_user.groups
 
