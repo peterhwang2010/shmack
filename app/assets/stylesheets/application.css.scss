@@ -21,7 +21,7 @@
 @import "bootstrap";
 /* Some Style from the Bootstrap Default Theme */
 body {
-  padding-top: 70px;
+  padding-top: 60px;
   padding-bottom: 30px;
 }
 
@@ -62,6 +62,7 @@ h6 {
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     letter-spacing: 3px;
+    font-size: 20px;
 }
 
 p {
@@ -171,6 +172,7 @@ a:focus {
         padding: 0;
         border-bottom: 1px solid rgba(255,255,255,.3);
         background: #000;
+        font-size: 30px;
     }
 }
 
@@ -192,6 +194,7 @@ a:focus {
 .intro .intro-body {
     display: table-cell;
     vertical-align: middle;
+
 }
 
 .intro .intro-body .brand-heading {
@@ -209,7 +212,7 @@ a:focus {
     }
 
     .intro .intro-body .brand-heading {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .intro .intro-body .intro-text {
@@ -444,3 +447,6 @@ body {
     width: 200px;
     height: 200px;
 }
+
+
+
