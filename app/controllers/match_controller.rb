@@ -56,6 +56,7 @@ class MatchController < ApplicationController
     end
     @loser.update(lose: @loser.lose+=1)
     @current_match.update(winner: @winner.name)
+    binding.pry
     render "create"
   end
 end

@@ -3,6 +3,7 @@
         <div class="col col-md-">
             <h3 class="brand-heading"><%= current_user.name %></h3>
             <%= image_tag current_user.image_aws, class: "img-circle"%>
+        <h4>Win : <%= current_user.win %>  Lose: <%= current_user.lose %> </h4>
             <h4> Email: <%= current_user.email %> </h4>
             <%= link_to "Edit", 'user/edit', method: :update, class: "btn btn-primary"%><br>
         </div>
